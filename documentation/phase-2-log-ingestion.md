@@ -4,12 +4,14 @@
 
 Configure Splunk Enterprise to receive Windows security logs from the Splunk Universal Forwarder.
 
-## Steps Completed
+## Implementation Steps
 
-- Opened Splunk Settings.
-- Navigated to **Forwarding and Receiving**.
-- Configured a receiving port.
-- Enabled TCP port **9997** for incoming data.
+1. Logged in to Splunk Enterprise.
+2. Navigated to **Settings > Forwarding and Receiving**.
+3. Selected **Configure Receiving**.
+4. Created a new receiving port.
+5. Configured TCP port **9997**.
+6. Verified that the receiving port was enabled.
 
 ## Why Port 9997?
 
