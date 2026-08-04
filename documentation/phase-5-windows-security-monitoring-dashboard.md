@@ -154,6 +154,3 @@ The completed dashboard provides analysts with immediate visibility into authent
 
 ---
 
-## Next Phase
-
-Phase 6 will focus on **Detection Engineering**, where custom SPL detections, alerts, and threat hunting queries will be developed to identify suspicious Windows authentication activity and support proactive security monitoring.
