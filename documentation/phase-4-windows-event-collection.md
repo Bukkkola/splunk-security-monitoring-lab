@@ -1,8 +1,30 @@
 
----
-### Windows Security Events
+# Phase 4 – Windows Event Collection & Analysis
 
-Windows Security Event Logs were successfully ingested into Splunk Enterprise and indexed in the **main** index. Searches returned multiple security events, including successful logons (Event ID **4624**), privileged logons (Event ID **4672**), logoff events (Event ID **4634**), and explicit credential usage (Event ID **4648**). This confirms that the end-to-end log collection pipeline—from the Windows endpoint, through the Universal Forwarder, to Splunk Enterprise—is functioning correctly.
+## Overview
+
+After deploying and configuring the Splunk Universal Forwarder, Windows Event Logs were successfully collected and forwarded to Splunk Enterprise. This phase validates the end-to-end log collection pipeline by demonstrating that Windows Security events were successfully ingested, indexed, and made available for searching and analysis using Splunk Search Processing Language (SPL).
+
+The collected events provide valuable visibility into authentication activity, privileged access, credential usage, and user session management, forming the foundation for security monitoring and threat detection.
+
+## Windows Security Events
+
+Windows Security Event Logs were successfully ingested into Splunk Enterprise and indexed in the **main** index. Searches returned multiple security events, including:
+
+- Event ID 4624 – Successful Logon
+- Event ID 4634 – User Logoff
+- Event ID 4648 – Logon Using Explicit Credentials
+- Event ID 4672 – Special Privileges Assigned to New Logon
+
+This confirms that the end-to-end log collection pipeline—from the Windows endpoint, through the Splunk Universal Forwarder, to Splunk Enterprise—is functioning correctly.
+## Security Events Collected
+
+| Event ID | Description | Security Use Case |
+|----------|-------------|-------------------|
+| 4624 | Successful Logon | Monitor successful user authentication and establish authentication timelines. |
+| 4634 | User Logoff | Track user session termination and correlate authentication activity. |
+| 4648 | Logon Using Explicit Credentials | Detect alternate credential usage and potential lateral movement. |
+| 4672 | Special Privileges Assigned | Monitor privileged account activity and administrative logons. |
 
 ## Event ID 4624 – Successful Logon
 
@@ -21,22 +43,23 @@ Monitoring Event ID 4624 enables security analysts to:
 In this lab, Splunk successfully ingested Event ID 4624 from the Windows endpoint, confirming that authentication events were collected and indexed correctly.
 
 ---
+## Event ID 4634 – User Logoff
 
-## Event ID 4672 – Special Privileges Assigned to New Logon
+![Event ID 4634 Logoff](../screenshots/event-4634.jpg)
 
-![Event ID 4672 special priviledges](../screenshots/event-4672.jpg)
 
-Event ID **4672** is generated when a user logs on with administrative or other highly privileged rights. This event is commonly associated with administrator accounts and privileged service accounts.
 
-Monitoring Event ID 4672 helps security analysts:
+Event ID **4634** is generated when a user logs off from a Windows system, indicating that a logon session has ended. This event helps complete the authentication lifecycle by identifying when user sessions are terminated.
 
-- Detect privileged account activity
-- Identify administrative logins
-- Monitor the use of elevated permissions
-- Investigate potential privilege escalation attempts
-- Correlate privileged logons with authentication events such as Event ID 4624
+Monitoring Event ID 4634 enables security analysts to:
 
-During this lab, Splunk successfully collected and indexed Event ID 4672, demonstrating the ability to monitor privileged authentication activity from the Windows endpoint
+- Track user session termination
+- Correlate logoff events with successful logons (Event ID 4624)
+- Build user activity timelines during investigations
+- Identify abnormal session durations
+- Support forensic analysis by reconstructing user activity
+
+In this lab, Splunk successfully collected and indexed Event ID 4634, demonstrating the ability to monitor user session activity and correlate authentication events from the Windows endpoint.
 
 ## Event ID 4648 – Logon Using Explicit Credentials
 
@@ -55,23 +78,22 @@ Monitoring Event ID 4648 enables security analysts to:
 
 In this lab, Splunk successfully ingested Event ID 4648 from the Windows endpoint, confirming that explicit credential authentication events were collected and indexed correctly.
 
----
 
-## Event ID 4634 – User Logoff
+## Event ID 4672 – Special Privileges Assigned to New Logon
 
-![Event ID 4634 Logoff](../screenshots/event-4634.jpg)
+![Event ID 4672 special priviledges](../screenshots/event-4672.jpg)
 
+Event ID **4672** is generated when a user logs on with administrative or other highly privileged rights. This event is commonly associated with administrator accounts and privileged service accounts.
 
+Monitoring Event ID 4672 helps security analysts:
 
-Event ID **4634** is generated when a user logs off from a Windows system, indicating that a logon session has ended. This event helps complete the authentication lifecycle by identifying when user sessions are terminated.
+- Detect privileged account activity
+- Identify administrative logins
+- Monitor the use of elevated permissions
+- Investigate potential privilege escalation attempts
+- Correlate privileged logons with authentication events such as Event ID 4624
 
-Monitoring Event ID 4634 enables security analysts to:
+During this lab, Splunk successfully collected and indexed Event ID 4672, demonstrating the ability to monitor privileged authentication activity from the Windows endpoint
 
-- Track user session termination
-- Correlate logoff events with successful logons (Event ID 4624)
-- Build user activity timelines during investigations
-- Identify abnormal session durations
-- Support forensic analysis by reconstructing user activity
-
-In this lab, Splunk successfully collected and indexed Event ID 4634, demonstrating the ability to monitor user session activity and correlate authentication events from the Windows endpoint.
+nt.
 
