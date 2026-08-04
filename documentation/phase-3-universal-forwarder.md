@@ -103,18 +103,7 @@ The `outputs.conf` file was configured to define the destination for forwarded l
 
 After configuring `outputs.conf`, the Splunk Universal Forwarder successfully established communication with the Splunk Enterprise server and forwarded Windows Event Logs over TCP port **9997**. This enabled centralized log collection, indexing, and security monitoring within Splunk Enterprise.
 
-```
 
-> **Note:** The Splunk server IP address has been replaced with a placeholder for security purposes.
-
-
-### Skills Demonstrated
-
-- Splunk Universal Forwarder Configuration
-- Log Forwarding Configuration
-- SIEM Administration
-- TCP Network Configuration
-- Endpoint Log Collection
 ## Windows Forwarder Connected
 
 ![Windows Forwarder Connected](../screenshots/forwarder-connected.jpg)
