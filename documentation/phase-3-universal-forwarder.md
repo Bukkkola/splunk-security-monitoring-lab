@@ -36,8 +36,6 @@ The Splunk Universal Forwarder service was successfully installed and configured
 
 ## Configure `inputs.conf`
 
-![inputs.conf](../screenshots/inputs.conf.jpg)
-
 ### Objective
 
 Configure the Splunk Universal Forwarder to monitor and collect Windows Event Logs from the Windows 11 endpoint for centralized security monitoring in Splunk Enterprise.
@@ -54,22 +52,8 @@ These logs provide visibility into authentication events, operating system activ
 
 ### Configuration
 
-```ini
-[WinEventLog://Security]
-disabled = 0
-index = main
-start_from = oldest
+![inputs.conf](../screenshots/inputs.conf.jpg)
 
-[WinEventLog://System]
-disabled = 0
-index = main
-start_from = oldest
-
-[WinEventLog://Application]
-disabled = 0
-index = main
-start_from = oldest
-```
 
 ### Configuration Details
 
