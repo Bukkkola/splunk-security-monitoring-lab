@@ -36,13 +36,21 @@ The Splunk Universal Forwarder service was successfully installed and configured
 
 ## Configure `inputs.conf`
 
-The **inputs.conf** file was created to configure the Splunk Universal Forwarder to monitor Windows Event Logs. Three Windows log sources were enabled:
+![inputs.conf](../screenshots/inputs.conf.png)
+
+### Objective
+
+Configure the Splunk Universal Forwarder to monitor and collect Windows Event Logs from the Windows 11 endpoint for centralized security monitoring in Splunk Enterprise.
+
+### Configuration Summary
+
+The `inputs.conf` file was created to define the Windows Event Logs that the Universal Forwarder should collect. Three primary Windows log sources were configured:
 
 - Security
 - System
 - Application
 
-These logs are forwarded to Splunk Enterprise for centralized security monitoring and analysis.
+These logs provide visibility into authentication events, operating system activity, and application behavior, enabling security monitoring and incident investigation.
 
 ### Configuration
 
@@ -62,18 +70,63 @@ disabled = 0
 index = main
 start_from = oldest
 ```
+
+### Configuration Details
+
+| Setting | Purpose |
+|----------|---------|
+| `WinEventLog://Security` | Collects Windows Security events such as logons, logoffs, privilege assignments, and authentication activity. |
+| `WinEventLog://System` | Collects operating system events, including service activity, driver events, and system startup or shutdown information. |
+| `WinEventLog://Application` | Collects application-generated events that assist with troubleshooting and monitoring application behavior. |
+| `disabled = 0` | Enables log collection for the specified event log. |
+| `index = main` | Stores collected events in the **main** index within Splunk Enterprise. |
+| `start_from = oldest` | Begins collecting events from the oldest available record, ensuring historical events are ingested during the initial configuration. |
+
+### Outcome
+
+After configuring `inputs.conf`, the Splunk Universal Forwarder successfully monitored the configured Windows Event Logs and forwarded them to Splunk Enterprise for indexing, searching, and security analysis.
+
+### Skills Demonstrated
+
+- Splunk Universal Forwarder Configuration
+- Windows Event Log Collection
+- SIEM Data Ingestion
+- Windows Security Monitoring
+- Endpoint Log Collection
 ## Configure `outputs.conf`
 
-The **outputs.conf** file was configured to forward collected Windows Event Logs to the Splunk Enterprise indexer.
+### Objective
 
+Configure the Splunk Universal Forwarder to send collected Windows Event Logs to the Splunk Enterprise server.
+
+### Configuration Summary
+
+The `outputs.conf` file was configured to define the destination for forwarded log data. This configuration directs the Universal Forwarder to transmit Windows Event Logs to the Splunk Enterprise receiving port over TCP.
+
+![outputs.conf](../screenshots/outputs.conf.jpg)
 ### Configuration
 
-- Destination: Splunk Enterprise
-- Protocol: TCP
-- Receiving Port: 9997
+```ini
+[tcpout]
+defaultGroup = splunk_indexer
 
-The Universal Forwarder successfully established communication with the Splunk Enterprise server over TCP port 9997.
+[tcpout:splunk_indexer]
+server = <Splunk-Server-IP>:9997
+```
 
+> **Note:** The Splunk server IP address has been replaced with a placeholder for security purposes.
+
+### Outcome
+
+After configuring `outputs.conf`, the Universal Forwarder successfully established communication with the Splunk Enterprise server. This enabled Windows Event Logs to be securely forwarded for centralized indexing, searching, and security analysis.
+
+### Skills Demonstrated
+
+- Splunk Universal Forwarder Configuration
+- Log Forwarding Configuration
+- SIEM Administration
+- TCP Network Configuration
+- Endpoint Log Collection
 ## Windows Forwarder Connected
 
 ![Windows Forwarder Connected](../screenshots/forwarder-connected.jpg)
