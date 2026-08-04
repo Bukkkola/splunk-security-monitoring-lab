@@ -95,5 +95,4 @@ Monitoring Event ID 4672 helps security analysts:
 
 During this lab, Splunk successfully collected and indexed Event ID 4672, demonstrating the ability to monitor privileged authentication activity from the Windows endpoint
 
-nt.
 
