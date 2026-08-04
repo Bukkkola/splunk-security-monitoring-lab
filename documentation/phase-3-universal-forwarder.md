@@ -85,7 +85,7 @@ Verify that the Splunk Universal Forwarder running on the Windows 11 endpoint ha
 
 ## Connection Verification
 
-![Connection Verification](../screenshots/connection verification.jpg)
+![Connection Verification](../screenshots/connection-verification.jpg)
 
 
 After configuring the Splunk Universal Forwarder, network connectivity between the Windows 11 endpoint and the Splunk Enterprise server was verified using the `netstat` command.
