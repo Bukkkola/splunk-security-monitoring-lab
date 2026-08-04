@@ -81,8 +81,16 @@ splunk-security-monitoring-lab/
 
 ---
 
-## Current Status
+## Project Outcome
 
-✅ Splunk Enterprise has been successfully installed and is running.
+Successfully configured Splunk Enterprise to receive Windows Event Logs from a Windows 11 endpoint using Splunk Universal Forwarder.
 
-The next step is configuring Splunk to receive logs from the Windows virtual machine.
+Validated successful ingestion of Security, Application, and System event logs.
+
+Successfully collected and searched Windows Security events including:
+
+- Event ID 4624 (Successful Logon)
+- Event ID 4634 (Logoff)
+- Event ID 4648 (Explicit Credentials)
+- Event ID 4672 (Special Privileges Assigned)
+- Event ID 5379 (Credential Manager Access)
