@@ -46,3 +46,26 @@ The **outputs.conf** file was configured to forward collected Windows Event Logs
 - Receiving Port: 9997
 
 The Universal Forwarder successfully established communication with the Splunk Enterprise server over TCP port 9997.
+
+## Connection Verification
+
+![Connection Verification](../screenshots/connection-verification.jpg)
+
+
+After configuring the Splunk Universal Forwarder, network connectivity between the Windows 11 endpoint and the Splunk Enterprise server was verified using the `netstat` command.
+
+The output confirmed:
+
+- **LISTEN** – Splunk Enterprise is actively listening for incoming connections on TCP port **9997**.
+- **ESTABLISHED** – An active TCP session exists between the Windows 11 endpoint (running the Splunk Universal Forwarder) and the Splunk Enterprise server, confirming that the forwarder successfully established a connection to the indexer.
+
+This verification demonstrates that the communication channel required for forwarding Windows Event Logs is operational and that the Splunk Enterprise server is ready to receive security events for indexing and analysis.
+
+### Verification Output
+
+```text
+tcp4  <Splunk-Server-IP>.9997     <Windows-Endpoint-IP>.54783     ESTABLISHED
+tcp4  *.9997                      *.*                             LISTEN
+```
+
+> **Note:** Private IP addresses have been masked for security and privacy purposes.
