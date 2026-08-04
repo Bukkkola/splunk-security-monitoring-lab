@@ -36,7 +36,7 @@ The Splunk Universal Forwarder service was successfully installed and configured
 
 ## Configure `inputs.conf`
 
-![inputs.conf](../screenshots/inputs.conf.png)
+![inputs.conf](../screenshots/inputs.conf.jpg)
 
 ### Objective
 
