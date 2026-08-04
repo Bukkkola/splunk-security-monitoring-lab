@@ -73,7 +73,7 @@ Correlate this event with:
 
 ## Screenshot
 
-![Successful Logon](../screenshots/event-4624-successful-logon.png)
+![Successful Logon](../screenshots/event-4624.jpg)
 
 ---
 
