@@ -73,4 +73,5 @@ Monitoring Event ID 4634 enables security analysts to:
 - Identify abnormal session durations
 - Support forensic analysis by reconstructing user activity
 
-In this lab, Splunk succ
+In this lab, Splunk successfully collected and indexed Event ID 4634, demonstrating the ability to monitor user session activity and correlate authentication events from the Windows endpoint.
+
