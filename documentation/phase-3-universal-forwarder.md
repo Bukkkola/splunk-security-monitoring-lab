@@ -90,19 +90,23 @@ The `outputs.conf` file was configured to define the destination for forwarded l
 ![outputs.conf](../screenshots/outputs.conf.jpg)
 ### Configuration
 
-```ini
-[tcpout]
-defaultGroup = splunk_indexer
+### Configuration Details
 
-[tcpout:splunk_indexer]
-server = <Splunk-Server-IP>:9997
+| Setting | Purpose |
+|----------|---------|
+| `[tcpout]` | Defines the global TCP forwarding configuration for the Universal Forwarder. |
+| `defaultGroup = splunk_indexer` | Specifies the default forwarding group that the Universal Forwarder will use to send collected logs. |
+| `[tcpout:splunk_indexer]` | Creates a forwarding group named **splunk_indexer** that contains the destination Splunk Enterprise server. |
+| `server = <Splunk-Server-IP>:9997` | Specifies the Splunk Enterprise server and receiving port that will receive forwarded Windows Event Logs. Port **9997** is the default receiving port configured on the Splunk Enterprise server. |
+
+### Outcome
+
+After configuring `outputs.conf`, the Splunk Universal Forwarder successfully established communication with the Splunk Enterprise server and forwarded Windows Event Logs over TCP port **9997**. This enabled centralized log collection, indexing, and security monitoring within Splunk Enterprise.
+
 ```
 
 > **Note:** The Splunk server IP address has been replaced with a placeholder for security purposes.
 
-### Outcome
-
-After configuring `outputs.conf`, the Universal Forwarder successfully established communication with the Splunk Enterprise server. This enabled Windows Event Logs to be securely forwarded for centralized indexing, searching, and security analysis.
 
 ### Skills Demonstrated
 
