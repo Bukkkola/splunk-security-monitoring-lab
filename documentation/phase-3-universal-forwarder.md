@@ -1,7 +1,34 @@
 
 ## Evidence
 
-### Universal Forwarder Installed
+### Universal Forwarder Installation
+
+### Objective
+
+Deploy the Splunk Universal Forwarder on a Windows 11 endpoint to collect Windows Event Logs and securely forward them to the Splunk Enterprise server for centralized monitoring and analysis.
+
+### Installation Summary
+
+The Splunk Universal Forwarder was successfully installed on the Windows 11 virtual machine. After installation, the **SplunkForwarder** Windows service was configured to start automatically and verified to be in the **Running** state using the Windows Services console.
+
+Running the service with an **Automatic** startup type ensures that log collection resumes automatically whenever the system restarts, providing continuous monitoring without manual intervention.
+
+### Verification
+
+The installation was verified by confirming that:
+
+- The **SplunkForwarder** service was installed successfully.
+- The service status was **Running**.
+- The startup type was set to **Automatic**.
+- The endpoint was ready to collect and forward Windows Event Logs.
+
+### Skills Demonstrated
+
+- Splunk Universal Forwarder Deployment
+- Windows Service Administration
+- Endpoint Log Collection
+- SIEM Infrastructure Configuration
+- Windows Endpoint Management
 
 ![Universal Forwarder](../screenshots/universal-forwarder.jpg)
 
@@ -46,6 +73,15 @@ The **outputs.conf** file was configured to forward collected Windows Event Logs
 - Receiving Port: 9997
 
 The Universal Forwarder successfully established communication with the Splunk Enterprise server over TCP port 9997.
+
+## Windows Forwarder Connected
+
+![Windows Forwarder Connected](../screenshots/connection-verification.png)
+
+### Objective
+
+Verify that the Splunk Universal Forwarder running on the Windows 11 endpoint has successfully established a connection with the Splunk Enterprise server.
+
 
 ## Connection Verification
 
