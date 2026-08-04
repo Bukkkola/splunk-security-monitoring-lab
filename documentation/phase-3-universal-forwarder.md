@@ -35,3 +35,14 @@ disabled = 0
 index = main
 start_from = oldest
 ```
+## Configure `outputs.conf`
+
+The **outputs.conf** file was configured to forward collected Windows Event Logs to the Splunk Enterprise indexer.
+
+### Configuration
+
+- Destination: Splunk Enterprise
+- Protocol: TCP
+- Receiving Port: 9997
+
+The Universal Forwarder successfully established communication with the Splunk Enterprise server over TCP port 9997.
