@@ -9,6 +9,8 @@ The collected events provide valuable visibility into authentication activity, p
 
 ## Windows Security Events
 
+![Windows Security Events](../screenshots/search-security-events.jpg)
+
 Windows Security Event Logs were successfully ingested into Splunk Enterprise and indexed in the **main** index. Searches returned multiple security events, including:
 
 - Event ID 4624 – Successful Logon
