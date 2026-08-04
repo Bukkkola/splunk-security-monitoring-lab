@@ -95,4 +95,20 @@ Monitoring Event ID 4672 helps security analysts:
 
 During this lab, Splunk successfully collected and indexed Event ID 4672, demonstrating the ability to monitor privileged authentication activity from the Windows endpoint
 
+## Phase Summary
 
+This phase successfully validated the collection and analysis of Windows Security Event Logs within Splunk Enterprise.
+
+The deployment successfully ingested and indexed key authentication and privilege-related events, including successful logons, user logoffs, explicit credential usage, and privileged logons.
+
+These events provide the foundation for security monitoring, threat detection, dashboard creation, and incident investigations in subsequent phases of the project.
+
+### Skills Demonstrated
+
+- Windows Event Log Analysis
+- Splunk Search Processing Language (SPL)
+- Windows Authentication Monitoring
+- Privileged Access Monitoring
+- Security Event Correlation
+- Security Monitoring
+- SIEM Operations
