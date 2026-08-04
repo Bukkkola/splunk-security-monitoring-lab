@@ -78,8 +78,37 @@ index=main EventCode=4625
 - Was there a successful login afterwards?
 - Is the account privileged?
 
----
+### Validation
 
+The detection was validated by intentionally entering an incorrect password multiple times on the monitored Windows 11 endpoint.
+
+Splunk successfully ingested seven Event ID 4625 records, confirming that failed authentication attempts were collected and detected in near real time.
+
+
+
+## Evidence
+
+The detection was validated by intentionally entering an incorrect password multiple times on the monitored Windows 11 endpoint.
+
+Splunk successfully collected and indexed seven Windows Security Event ID 4625 (Failed Logon) events, confirming that failed authentication attempts were detected in near real time.
+
+### Validation Query
+
+```spl
+index=main EventCode=4625
+```
+
+### Screenshot
+
+**failed-logon-events.jpg**
+
+![Failed Logon Events](../screenshots/phase-6/failed-logon-events.jpg)
+
+## Outcome
+
+This detection successfully identified repeated failed authentication attempts generated during testing. The collected Event ID 4625 records demonstrate Splunk's ability to detect failed logon activity that may indicate password guessing, brute-force attacks, or unauthorized access attempts.
+
+The detection can be further enhanced by applying thresholds, alerting, and correlation with successful logons (Event ID 4624) to identify compromised accounts.
 # Detection 3 – Explicit Credentials (Event ID 4648)
 
 ## Detection Objective
