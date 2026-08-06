@@ -7,24 +7,6 @@
 This document contains Splunk Search Processing Language (SPL) detection queries used to monitor privileged account activity, administrative logons, and changes to security group memberships. These detections help identify privilege escalation, unauthorized administrative actions, and misuse of elevated permissions.
 
 ---
-# Privilege Monitoring Detections
-
-Overview
-
-Detection 1 – User Added to Local Security Group (4732)
-...completed documentation...
-
--------------------------------------------------------
-
-Detection 2 – User Removed from Local Security Group (4733)
-...completed documentation...
-
--------------------------------------------------------
-
-Detection 3 – Special Privileges Assigned to New Logon (4672)
-...completed documentation...
-
--------------------------------------------------------
 
 ## Detection Summary
 
