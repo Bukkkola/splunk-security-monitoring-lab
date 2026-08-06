@@ -1,5 +1,7 @@
 # Phase 7 – Account Management Monitoring
 
+# Detection 1 – User Account Created (Event ID 4720)
+
 ## Overview
 
 This phase focused on monitoring Windows account management events using Splunk Enterprise. Security detections were created to identify user account creation, deletion, modification, and lockout events.
