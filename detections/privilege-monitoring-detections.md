@@ -1,14 +1,21 @@
 
+
 # Privilege Monitoring Detections
 
 ## Overview
 
-This document will contain Splunk SPL detection queries used to monitor privileged account activity, privilege assignments, and administrative operations.
+This document contains Splunk Search Processing Language (SPL) detection queries used to monitor privileged account activity, administrative logons, and changes to security group memberships. These detections help identify privilege escalation, unauthorized administrative actions, and misuse of elevated permissions.
 
-These detections will be developed after generating the required Windows Security Events in later phases of the project.
+---
 
-## Planned Detections
+## Detection Status
 
-- Event ID 4672 – Special Privileges Assigned
-- Event ID 4673 – Privileged Service Called
-- Event ID 4674 – Privileged Object Operation
+| Event ID | Detection | Status |
+|----------|-----------|:------:|
+| **4672** | Special Privileges Assigned to New Logon | ✅ Completed |
+| **4673** | Privileged Service Called | ⏳ Planned |
+| **4674** | Privileged Object Operation | ⏳ Planned |
+| **4732** | User Added to Local Security Group | ⏳ Planned |
+| **4733** | User Removed from Local Security Group | ⏳ Planned |
+
+---
