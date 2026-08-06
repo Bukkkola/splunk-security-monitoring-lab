@@ -140,3 +140,73 @@ index=main EventCode=4625
 ## Outcome
 
 The failed logon detection successfully identified repeated authentication failures against the monitored Windows endpoint. This detection enables Security Operations Center (SOC) analysts to identify brute-force attacks, password spraying attempts, and other suspicious authentication activity requiring further investigation. It also provides valuable visibility into account misuse and supports proactive threat detection.
+
+# Detection 3 – Explicit Credentials (Event ID 4648)
+
+## Detection Objective
+
+Detect Windows authentication events where alternate credentials are supplied, helping identify administrative activity, credential misuse, or potential lateral movement.
+
+---
+
+## SPL Query
+
+```spl
+index=main EventCode=4648
+| table _time host Account_Name Process_Name
+| sort -_time
+```
+
+---
+
+## Security Use Case
+
+This detection helps security analysts to:
+
+- Detect the use of alternate credentials
+- Monitor administrative authentication activity
+- Identify potential credential misuse
+- Investigate potential lateral movement
+- Correlate authentication events during incident investigations
+
+---
+
+## MITRE ATT&CK Mapping
+
+| Technique | ID |
+|----------|------|
+| Use Alternate Authentication Material | T1550 |
+
+---
+
+## Investigation Checklist
+
+- Which account supplied the credentials?
+- Which process initiated the authentication?
+- Was the authentication expected?
+- Is the account privileged?
+- Was the authentication followed by suspicious activity?
+
+---
+
+## Evidence
+
+The detection was validated by searching for Windows Security Event ID **4648** within Splunk.
+
+Splunk successfully identified **18 explicit credential authentication events** generated from the monitored Windows endpoint. The results include the event timestamp, host, account name, and process responsible for the authentication, demonstrating that explicit credential usage is being successfully collected and monitored.
+
+### Validation Query
+
+```spl
+index=main EventCode=4648
+| table _time host Account_Name Process_Name
+| sort -_time
+```
+
+![Explicit Credentials Detection](../screenshots/explicit-credentials-detection.jpg)
+
+---
+
+## Outcome
+
+The explicit credential detection successfully identified Windows authentication events where alternate credentials were used. Monitoring Event ID 4648 provides valuable visibility into administrative authentication activity, credential usage, and potential lateral movement, enabling Security Operations Center (SOC) analysts to investigate suspicious authentication behavior and support incident response activities.
