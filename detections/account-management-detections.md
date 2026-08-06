@@ -38,11 +38,6 @@ This phase successfully implemented and validated four Windows account managemen
 The completed detections provide visibility into the complete lifecycle of Windows user accounts, including account creation, deletion, modification, and lockout events. By validating each detection with real Windows Security Event Logs, the project demonstrates practical experience in building detection logic, analyzing security events, and documenting investigation procedures commonly performed by Security Operations Center (SOC) analysts.
 
 These detections strengthen the overall Splunk Security Monitoring Lab by expanding coverage beyond authentication events to include account administration and identity-related security monitoring.
- – User Account Enabled
-- Event ID 4723 – Password Change Attempt
-- Event ID 4724 – Password Reset
-- Event ID 4725 – User Account Disabled
-- Event ID 4732 – User Added to Privileged Group
-- Event ID 4733 – User Removed from Group
+ 
 
 These detections will expand monitoring coverage for Windows account lifecycle events and privileged account management.
