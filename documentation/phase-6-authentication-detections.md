@@ -210,3 +210,69 @@ index=main EventCode=4648
 ## Outcome
 
 The explicit credential detection successfully identified Windows authentication events where alternate credentials were used. Monitoring Event ID 4648 provides valuable visibility into administrative authentication activity, credential usage, and potential lateral movement, enabling Security Operations Center (SOC) analysts to investigate suspicious authentication behavior and support incident response activities.
+
+# Detection 4 – User Logoff (Event ID 4634)
+
+## Detection Objective
+
+Monitor Windows user logoff events to track session termination and correlate user logoff activity with successful logons.
+
+---
+
+## SPL Query
+
+```spl
+index=main EventCode=4634
+| stats count by Account_Name, host
+| sort -count
+```
+
+---
+
+## Security Use Case
+
+This detection helps security analysts to:
+
+- Monitor user session termination
+- Build authentication timelines
+- Correlate successful logons with logoff events
+- Support forensic investigations
+- Identify unusual user session activity
+
+---
+
+## Investigation Checklist
+
+- Was there a corresponding successful logon (Event ID 4624)?
+- Was the session duration expected?
+- Did the account perform privileged actions before logging off?
+- Was the logoff initiated by a user or a system account?
+- Is the logoff activity consistent with normal system behavior?
+
+---
+
+## Evidence
+
+The detection was validated by searching for Windows Security Event ID **4634** collected from the monitored Windows endpoint.
+
+Splunk successfully identified **3 user logoff events** associated with the **SplunkForwarder** account on the monitored host. This confirms that Windows session termination events are being collected correctly and can be used to reconstruct authentication timelines during investigations.
+
+### Validation Query
+
+```spl
+index=main EventCode=4634
+| stats count by Account_Name, host
+| sort -count
+```
+
+### Screenshot
+
+**user-logoff-detection.jpg**
+
+![User Logoff Detection](../screenshots/user-logoff-detection.jpg)
+
+---
+
+## Outcome
+
+The user logoff detection successfully identified Windows session termination events collected by Splunk. Monitoring Event ID 4634 enables SOC analysts to correlate logon and logoff activity, investigate user sessions, establish authentication timelines, and support incident response and forensic investigations.
