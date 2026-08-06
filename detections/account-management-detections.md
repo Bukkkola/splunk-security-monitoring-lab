@@ -10,12 +10,10 @@ This document contains Splunk Search Processing Language (SPL) detection queries
 
 | Event ID | Detection | Status |
 |----------|-----------|:------:|
-| **4720** | [User Account Created](#detection-1--user-account-created-event-id-4720) | ✅ Validated |
-| **4726** | [User Account Deleted](#detection-2--user-account-deleted-event-id-4726) | ✅ Validated |
-| **4738** | [User Account Changed](#detection-3--user-account-changed-event-id-4738) | ✅ Validated |
-| **4740** | [User Account Locked Out](#detection-4--user-account-locked-out-event-id-4740) | ✅ Validated |
----
-
+| **4720** | [User Account Created](../documentation/phase-7-account-management.md#user-account-created) | ✅ Validated |
+| **4726** | [User Account Deleted](../documentation/phase-7-account-management.md#user-account-deleted) | ✅ Validated |
+| **4738** | [User Account Changed](../documentation/phase-7-account-management.md#user-account-changed) | ✅ Validated |
+| **4740** | [User Account Locked Out](../documentation/phase-7-account-management.md#user-account-locked-out) | ✅ Validated |
 ## Skills Demonstrated
 
 - Windows Security Event Monitoring
