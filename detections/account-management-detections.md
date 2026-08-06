@@ -6,7 +6,6 @@
 This document contains Splunk Search Processing Language (SPL) detection queries used to monitor Windows account management activities. These detections provide visibility into the lifecycle of user accounts, including account creation, modification, deletion, and lockout events. Monitoring these events helps identify unauthorized administrative activity, privilege abuse, and potential indicators of compromise.
 
 ---
-
 ## Detection Summary
 
 | Event ID | Detection | Status |
