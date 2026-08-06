@@ -135,3 +135,56 @@ index=main EventCode=4740
 ## Outcome
 
 The detection successfully identified a Windows account lockout event after repeated failed authentication attempts. This validates Splunk's ability to detect potential brute-force attacks and provides visibility into suspicious authentication activity that may require further investigation.
+
+# Detection 4 – User Account Changed (Event ID 4738)
+
+## Detection Objective
+
+Detect modifications to existing user accounts to identify unauthorized account changes, privilege abuse, or suspicious administrative activity.
+
+## SPL Query
+
+```spl
+index=main EventCode=4738
+```
+
+## Security Use Case
+
+- Monitor user account modifications
+- Detect unauthorized account changes
+- Identify suspicious administrative activity
+- Support security auditing and compliance
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|-----------|----|
+| Account Manipulation | T1098 |
+
+## Investigation Checklist
+
+- Which user account was modified?
+- What account attribute was changed?
+- Who performed the modification?
+- Was the change authorized?
+- Were any privileged groups affected?
+
+## Validation
+
+The **lockouttest** account was modified by updating its account properties using the Windows Local Users and Groups management console.
+
+Splunk successfully collected **Windows Security Event ID 4738**, confirming that account modification events were forwarded and indexed in near real time.
+
+## Evidence
+
+**Validation Query**
+
+```spl
+index=main EventCode=4738
+```
+
+![User Account Modified Detection](../screenshots/account-modified-detection.jpg)
+
+## Outcome
+
+The detection successfully identified a user account modification event. This validates Splunk's ability to monitor account changes and provides visibility into administrative actions that could indicate unauthorized account manipulation or privilege abuse.
