@@ -28,7 +28,3 @@ This phase focused on monitoring Windows account management events using Splunk 
 
 
 ![User Account Created](../screenshots/account-created-detection.jpg)
-
-## Next Phase
-
-The next phase will extend account management monitoring by validating user account deletion, account lockout, and account modification events.
