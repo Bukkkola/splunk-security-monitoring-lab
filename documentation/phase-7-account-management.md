@@ -76,9 +76,6 @@ Splunk successfully collected **Windows Security Event ID 4726**, confirming tha
 index=main EventCode=4726
 ```
 
-**Screenshot**
-
-`phase-7-account-deleted-detection.jpg`
 ![User Account Deleted Detection](../screenshots/account-deleted-detection.jpg)
 
 ## Outcome
