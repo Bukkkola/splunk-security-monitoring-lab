@@ -81,3 +81,57 @@ index=main EventCode=4726
 ## Outcome
 
 The detection successfully identified the deletion of a local Windows user account. This validates Splunk's ability to monitor account removal activities and provides visibility into potentially unauthorized account deletion events that may indicate attempts to remove user access, erase evidence, or maintain persistence within an environment.
+
+# Detection 3 – User Account Locked Out (Event ID 4740)
+
+## Detection Objective
+
+Detect user account lockout events that may indicate brute-force attacks, password spraying, or repeated failed authentication attempts.
+
+## SPL Query
+
+```spl
+index=main EventCode=4740
+```
+
+## Security Use Case
+
+- Detect account lockout events
+- Identify brute-force attacks
+- Detect password spraying attempts
+- Monitor suspicious authentication activity
+- Support incident response investigations
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|-----------|----|
+| Brute Force | T1110 |
+
+## Investigation Checklist
+
+- Which user account was locked?
+- Which system generated the lockout?
+- Were there multiple failed logon attempts (Event ID 4625) before the lockout?
+- Was the activity expected?
+- Is the affected account privileged?
+
+## Validation
+
+A temporary local user account named **lockouttest** was intentionally locked by entering an incorrect password multiple times until the Windows account lockout threshold was reached.
+
+Splunk successfully collected **Windows Security Event ID 4740**, confirming that account lockout events were forwarded and indexed in near real time.
+
+## Evidence
+
+**Validation Query**
+
+```spl
+index=main EventCode=4740
+```
+
+![User Account Lockout Detection](../screenshots/account-lockout-detection.jpg)
+
+## Outcome
+
+The detection successfully identified a Windows account lockout event after repeated failed authentication attempts. This validates Splunk's ability to detect potential brute-force attacks and provides visibility into suspicious authentication activity that may require further investigation.
