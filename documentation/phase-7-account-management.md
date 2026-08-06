@@ -190,3 +190,12 @@ index=main EventCode=4738
 ## Outcome
 
 The detection successfully identified a user account modification event. This validates Splunk's ability to monitor account changes and provides visibility into administrative actions that could indicate unauthorized account manipulation or privilege abuse.
+
+## Detection Summary
+
+| Event ID | Detection | Status |
+|----------|-----------|:------:|
+| **4720** | User Account Created | ✅ Completed |
+| **4726** | User Account Deleted | ✅ Completed |
+| **4740** | User Account Locked Out | ✅ Completed |
+| **4738** | User Account Changed | ✅ Completed |
