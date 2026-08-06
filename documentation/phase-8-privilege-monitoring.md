@@ -48,8 +48,6 @@ Splunk successfully collected and indexed the event, confirming that privileged 
 index=main EventCode=4672
 ```
 
-**Screenshot**
-
 ![Special Privileges Assigned Detection](../screenshots/special-privileges-detection.jpg)
 
 ## Outcome
@@ -104,14 +102,66 @@ Splunk successfully collected **Windows Security Event ID 4732**, confirming tha
 index=main EventCode=4732
 ```
 
-### Detection Screenshot
-
 ![User Added to Group Detection](../screenshots/user-added-to-group-detection.jpg)
-
-### Evidence Screenshot
 
 ![User Added to Group Evidence](../screenshots/user-added-to-group-evidence.jpg)
 
 ## Outcome
 
 The detection successfully identified a user being added to the local **Administrators** group. The event captured the user performing the action, the affected security group, and the target account, demonstrating Splunk's ability to detect administrative group membership changes that may indicate privilege escalation or unauthorized access.
+
+# Detection 3 – User Removed from Local Security Group (Event ID 4733)
+
+## Detection Objective
+
+Detect when a user account is removed from a security-enabled local group. This detection helps identify privilege reductions, administrative changes, and unauthorized modifications to group memberships.
+
+## SPL Query
+
+```spl
+index=main EventCode=4733
+```
+
+## Security Use Case
+
+- Detect users removed from privileged groups
+- Monitor administrative account changes
+- Identify privilege removal activities
+- Audit security group membership changes
+- Support incident response investigations
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|-----------|----|
+| Account Manipulation | T1098 |
+
+## Investigation Checklist
+
+- Which user was removed from the group?
+- Which security group was modified?
+- Who performed the action?
+- Was the change authorized?
+- Was the user intentionally removed from a privileged group?
+
+## Validation
+
+The **lockouttest** account was intentionally removed from the local **Administrators** group using the Windows Local Users and Groups management console.
+
+Splunk successfully collected **Windows Security Event ID 4733**, confirming that security group membership removal events were forwarded and indexed in near real time.
+
+## Evidence
+
+### Validation Query
+
+```spl
+index=main EventCode=4733
+```
+
+![User Removed from Group Detection](../screenshots/user-removed-from-group-detection.jpg)
+
+![User Removed from Group Evidence](../screenshots/user-removed-from-group-evidence.jpg)
+
+## Outcome
+
+The detection successfully identified a user being removed from the local **Administrators** group. The event recorded the administrator performing the action, the affected security group, and the target account, demonstrating Splunk's ability to detect privilege removal and administrative changes to group memberships.
