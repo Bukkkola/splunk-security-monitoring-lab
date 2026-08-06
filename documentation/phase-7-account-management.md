@@ -28,3 +28,59 @@ This phase focused on monitoring Windows account management events using Splunk 
 
 
 ![User Account Created](../screenshots/account-created-detection.jpg)
+
+# Detection 2 – User Account Deleted (Event ID 4726)
+
+## Detection Objective
+
+Detect the deletion of local user accounts to identify unauthorized account removal, malicious cleanup activity, or administrative account management operations.
+
+## SPL Query
+
+```spl
+index=main EventCode=4726
+```
+
+## Security Use Case
+
+- Monitor user account deletion
+- Detect unauthorized account removal
+- Identify attempts to remove evidence or persistence
+- Support security auditing and compliance
+
+## MITRE ATT&CK
+
+| Technique | ID |
+|-----------|----|
+| Create Account (Account Deletion) | T1136 |
+
+## Investigation Checklist
+
+- Which user account was deleted?
+- Who deleted the account?
+- Was the deletion authorized?
+- Was the account privileged?
+- Were any related administrative actions performed before or after the deletion?
+
+## Validation
+
+A temporary local user account named **splunktest** was deleted from the monitored Windows 11 endpoint using the Local Users and Groups management console.
+
+Splunk successfully collected **Windows Security Event ID 4726**, confirming that user account deletion events were forwarded and indexed in near real time.
+
+## Evidence
+
+**Validation Query**
+
+```spl
+index=main EventCode=4726
+```
+
+**Screenshot**
+
+`phase-7-account-deleted-detection.jpg`
+![User Account Deleted Detection](../screenshots/account-deleted-detection.jpg)
+
+## Outcome
+
+The detection successfully identified the deletion of a local Windows user account. This validates Splunk's ability to monitor account removal activities and provides visibility into potentially unauthorized account deletion events that may indicate attempts to remove user access, erase evidence, or maintain persistence within an environment.
