@@ -6,6 +6,16 @@
 This document contains Splunk Search Processing Language (SPL) detection queries used to monitor Windows authentication activity. These detections help identify normal login behavior, suspicious authentication attempts, credential misuse, and potential account compromise.
 
 ---
+| Detection | Event ID | Description |
+|-----------|----------|-------------|
+| successful-logons.spl | 4624 | Detects successful Windows logons and monitors user authentication activity. |
+| failed-logons.spl | 4625 | Detects repeated failed logon attempts that may indicate brute-force or password spraying attacks. |
+| explicit-credentials.spl | 4648 | Detects authentication events where explicit credentials are supplied, helping identify administrative activity or potential lateral movement. |
+| user-logoff.spl | 4634 | Monitors Windows user logoff events to support authentication timeline analysis and forensic investigations. |
+
+---
+
+## Detection Objectives
 
 # Detection 1 – Successful Logons (Event ID 4624)
 
