@@ -3,74 +3,43 @@
 
 ## Overview
 
-This document will contain Splunk SPL detection queries for monitoring Windows account management activities, including user creation, account deletion, password changes, account lockouts, and group membership modifications.
-
-These detections will be added after generating and collecting the corresponding Windows Security Events during the attack simulation phase of this project.
-
-## Planned Detections
-
-- Event ID 4720 – User Account Created
-- Event ID 4722 – User Account Enabled
-- Event ID 4723 – Password Change Attempt
-- Event ID 4724 – Password Reset
-- Event ID 4725 – User Account Disabled
-- Event ID 4726 – User Account Deleted
-- Event ID 4732 – User Added to Privileged Group
-- Event ID 4733 – User Removed from Group
-- Event ID 4740 – User Account Locked Out
-
-# Account Management Detections
-
-## Overview
-
-This document contains Splunk Search Processing Language (SPL) detection queries used to monitor Windows account management activities. These detections provide visibility into the lifecycle of user accounts, including account creation, modification, deletion, lockout events, and other administrative changes that may indicate unauthorized activity or privilege abuse.
+This document contains Splunk Search Processing Language (SPL) detection queries used to monitor Windows account management activities. These detections provide visibility into the lifecycle of user accounts, including account creation, modification, deletion, and lockout events. Monitoring these events helps identify unauthorized administrative activity, privilege abuse, and potential indicators of compromise.
 
 ---
 
-# Detection Status
+## Detection Summary
 
 | Event ID | Detection | Status |
 |----------|-----------|:------:|
-| **4720** | User Account Created | ✅ Completed |
-| **4722** | User Account Enabled | ⏳ Planned |
-| **4723** | Password Change Attempt | ⏳ Planned |
-| **4724** | Password Reset | ⏳ Planned |
-| **4725** | User Account Disabled | ⏳ Planned |
-| **4726** | User Account Deleted | ✅ Completed |
-| **4732** | User Added to Privileged Group | ⏳ Planned |
-| **4733** | User Removed from Group | ⏳ Planned |
-| **4738** | User Account Changed | ✅ Completed |
-| **4740** | User Account Locked Out | ✅ Completed |
-
+| **4720** | [User Account Created](#detection-1--user-account-created-event-id-4720) | ✅ Validated |
+| **4726** | [User Account Deleted](#detection-2--user-account-deleted-event-id-4726) | ✅ Validated |
+| **4738** | [User Account Changed](#detection-3--user-account-changed-event-id-4738) | ✅ Validated |
+| **4740** | [User Account Locked Out](#detection-4--user-account-locked-out-event-id-4740) | ✅ Validated |
 ---
 
-## Completed Detections
+## Skills Demonstrated
 
-The following detections have been implemented, validated, and documented using Windows Security Event Logs collected by Splunk.
-
-- ✅ Event ID 4720 – User Account Created
-- ✅ Event ID 4726 – User Account Deleted
-- ✅ Event ID 4738 – User Account Changed
-- ✅ Event ID 4740 – User Account Locked Out
-
-Each completed detection includes:
-
-- Detection Objective
-- SPL Query
-- Security Use Case
+- Windows Security Event Monitoring
+- Splunk Search Processing Language (SPL)
+- Windows Account Management Monitoring
+- Detection Engineering
+- Security Event Analysis
+- Windows Security Auditing
+- Log Collection and Analysis
+- Security Operations (SOC)
+- Incident Investigation
 - MITRE ATT&CK Mapping
-- Investigation Checklist
-- Validation
-- Evidence
-- Outcome
 
 ---
 
-## Planned Detections
+## Outcome
 
-The following account management detections will be implemented in future phases of this project.
+This phase successfully implemented and validated four Windows account management detections using Splunk Enterprise.
 
-- Event ID 4722 – User Account Enabled
+The completed detections provide visibility into the complete lifecycle of Windows user accounts, including account creation, deletion, modification, and lockout events. By validating each detection with real Windows Security Event Logs, the project demonstrates practical experience in building detection logic, analyzing security events, and documenting investigation procedures commonly performed by Security Operations Center (SOC) analysts.
+
+These detections strengthen the overall Splunk Security Monitoring Lab by expanding coverage beyond authentication events to include account administration and identity-related security monitoring.
+ – User Account Enabled
 - Event ID 4723 – Password Change Attempt
 - Event ID 4724 – Password Reset
 - Event ID 4725 – User Account Disabled
